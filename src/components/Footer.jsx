@@ -3,7 +3,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-background-secondary  text-text text-center py-10 px-6 overflow-hidden tracking-wide md:px-0">
+    <footer className="relative bg-background-secondary  text-text text-center py-10 px-6 overflow-hidden tracking-wide md:px-0 md:justify-evenly">
       <Image src="/footerbg.jpg" alt="Footer Background" fill className="absolute top-0 left-0 w-full h-full object-cover -z-10" />
 
       <div className="flex gap-40 justify-center mt-10">
@@ -25,8 +25,8 @@ const Footer = () => {
           </div>
         </section>
 
-        <article className="hidden md:flex md:flex-row md:justify-center md:gap-20 font-light">
-          <section className="flex flex-col gap-15 mb-10 mt-2.5 items-start">
+        <article className="hidden md:flex md:flex-row md:justify-center md:items-center md:gap-20 font-light">
+          <section className="flex flex-col gap-15 mb-10 mt-2.5 items-start md:mt-0">
             <h3 className="text-accent text-2xl font-medium tracking-wide">NEWS</h3>
             <div className="flex gap-8">
               <Image src="/footerbg.jpg" alt="Footer Background" width={120} height={120} className="object-cover w-32 h-32" />
@@ -80,8 +80,9 @@ const Footer = () => {
           </div>
         </section>
 
-        <div className="flex flex-col gap-2 md:col-end-1 md:row-end-1">
+        <div className="flex flex-col gap-2 md:col-end-1 md:row-end-1 md:flex md:flex-row">
           <p className="text-medium text-grey">Night Club</p>
+          <span className="hidden md:block">-</span>
           <p className="text-medium text-grey">All Rights Reserved</p>
         </div>
 
