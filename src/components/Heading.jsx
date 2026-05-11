@@ -8,7 +8,7 @@ const Heading = ({ children }) => {
       <div>
         <h1 className="uppercase text-3xl font-medium tracking-widest text-center">{children}</h1>
 
-        <span className="mx-auto w-[100px] h-0.5 block [background:var(--linear-gradient)]"></span>
+        <span className="mx-auto w-[100px] h-0.5 block [background:var(--linear-gradient)] mt-2"></span>
       </div>
     </div>
   );
