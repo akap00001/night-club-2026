@@ -1,6 +1,5 @@
 import Heading from "@/components/Heading";
 import ContactForm from "@/components/ContactForm";
-import Heading from "@/components/Heading";
 
 function Contact() {
   return (
