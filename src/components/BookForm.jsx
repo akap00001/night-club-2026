@@ -1,11 +1,11 @@
 "use client";
 import Button from "@/components/Button";
-import action from "@/app/action";
+import action2 from "@/app/action2";
 import Form from "next/form";
 import { useActionState } from "react";
 
-function BookForm() {
-  const [state, resAction, isPending] = useActionState(action, {
+function BookForm({ events = [], eventId, selectedTable }) {
+  const [state, resAction, isPending] = useActionState(action2, {
     message: "",
   });
 
@@ -20,23 +20,20 @@ function BookForm() {
 
         <input name="email" type="email" placeholder="Your Email" className="border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25" />
 
-        <input name="table-num" type="number" placeholder="Table Number" className="border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25" />
+        <input name="table-num" type="number" placeholder="Table Number" value={selectedTable || ""} onChange={() => {}} className="border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25" />
 
         <input name="num-of-guest" type="number" placeholder="Number of Guests" className="border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25" />
 
-        <select name="choose-night" defaultValue="" className=" bg-background-secondary border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25">
+        <select name="choose-night" defaultValue={eventId || ""} className=" bg-background-secondary border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25">
+          {/* HUSK AT TEST EFTER EVENT-SIDEN ER FÆRDIG */}
           <option value="" disabled>
             Choose Night
           </option>
-          <option type="time" value="night1">
-            NO
-          </option>
-          <option type="time" value="night2">
-            CONTENT
-          </option>
-          <option type="time" value="night3">
-            YET
-          </option>
+          {events.map((event) => (
+            <option key={event.id} value={event.id}>
+              {event.title}
+            </option>
+          ))}
         </select>
 
         <input name="contact-num" type="tel" placeholder="Your Contact Number" className="border border-text text-lg pl-3 pr-3 pt-4.5 pb-4.5 w-full" />
@@ -47,33 +44,6 @@ function BookForm() {
           <Button>{isPending ? "Reserving..." : "Reserve"}</Button>
         </div>
       </Form>
-
-      {/* <form className="flex flex-col gap-4 md:grid md:grid-cols-2 md:justify-center md:flex-none">
-        <input placeholder="Your Name" name="name" className="border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25"></input>
-
-        <input placeholder="Your Email" name="email" className="border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25"></input>
-
-        <input placeholder="Table Number" name="table-num" className="border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25"></input>
-
-        <input placeholder="Number of Guests" name="num-of-guest" className="border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25"></input>
-
-        <select name="choose-night" defaultValue="" className=" bg-background-secondary border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full md:max-h-21.25">
-          <option value="" disabled>
-            Choose Night
-          </option>
-          <option value="night1">NO</option>
-          <option value="night2">CONTENT</option>
-          <option value="night3">YET</option>
-        </select>
-
-        <input placeholder="Your Contact Number" name="contact-num" className="border border-text text-lg pl-3 pr-3 pt-4.5 pb-4.5 w-full"></input>
-
-        <textarea placeholder="Your Comment" name="comment" className="border border-text pl-3 pr-3 pt-4.5 pb-4.5 w-full h-91.5 md:col-span-2 md:h-90.75"></textarea>
-
-        <div className="flex justify-end md:col-span-2">
-          <Button>Reserve</Button>
-        </div>
-      </form> */}
     </div>
   );
 }

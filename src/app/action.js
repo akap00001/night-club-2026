@@ -7,12 +7,6 @@ const action = async (prevState, formData) => {
   const resemail = formData.get("email");
   const rescomment = formData.get("content");
 
-  //   Tæller for BookForm
-  const restable = formData.get("table-num");
-  const resguests = formData.get("num-of-guest");
-  const resnight = formData.get("choose-night");
-  const rescontact = formData.get("contact-num");
-
   // Valideringer
   if (!resname) {
     return { success: false, message: "Name is required" };
@@ -23,19 +17,6 @@ const action = async (prevState, formData) => {
   if (!rescomment) {
     return { success: false, message: "Comment is required" };
   }
-
-  //   if (!restable) {
-  //     return { sucess: false, message: "Table Number is required" };
-  //   }
-  //   if (!resguests) {
-  //     return { sucess: false, message: "Number of Guests is required" };
-  //   }
-  //   if (!resnight) {
-  //     return { sucess: false, message: "Please choose preferred night" };
-  //   }
-  //   if (!rescontact) {
-  //     return { sucess: false, message: "Contact Number is required" };
-  //   }
 
   try {
     // HUSK AT ÆNDRE URL'EN
